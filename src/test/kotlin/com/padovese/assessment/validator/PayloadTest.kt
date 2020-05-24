@@ -22,40 +22,41 @@ class PayloadTest {
 
     @Test(expected = NegativeArgException::class)
     fun `PayloadTest - Negative age`() {
-        val riskProfileDTO = RiskProfileDTOMock(-30, 0, 0, intArrayOf(1, 1, 1))
+        val riskProfileDTO = riskProfileDTOMock(-30, 0, 0, intArrayOf(1, 1, 1))
         payload.validate(riskProfileDTO)
     }
 
     @Test(expected = NegativeArgException::class)
     fun `PayloadTest - Negative dependents`() {
-        val riskProfileDTO = RiskProfileDTOMock(30, -1, 0, intArrayOf(1, 1, 1))
+        val riskProfileDTO = riskProfileDTOMock(30, -1, 0, intArrayOf(1, 1, 1))
         payload.validate(riskProfileDTO)
     }
 
     @Test(expected = NegativeArgException::class)
     fun `PayloadTest - Negative income`() {
-        val riskProfileDTO = RiskProfileDTOMock(30, 0, -1, intArrayOf(1, 1, 1))
+        val riskProfileDTO = riskProfileDTOMock(30, 0, -1, intArrayOf(1, 1, 1))
         payload.validate(riskProfileDTO)
     }
 
     @Test(expected = RiskQuestionsException::class)
     fun `PayloadTest - size of risk questions' array different than 3`() {
-        val riskProfileDTO = RiskProfileDTOMock(30, 0, 0, intArrayOf(1, 1, 1, 1))
+        val riskProfileDTO = riskProfileDTOMock(30, 0, 0, intArrayOf(1, 1, 1, 1))
         payload.validate(riskProfileDTO)
     }
 
     @Test(expected = RiskQuestionsException::class)
     fun `PayloadTest - elements on risk questions array different than 0 or 1`() {
-        val riskProfileDTO = RiskProfileDTOMock(30, 0, 0, intArrayOf(-1, 2, 9))
+        val riskProfileDTO = riskProfileDTOMock(30, 0, 0, intArrayOf(-1, 2, 9))
         payload.validate(riskProfileDTO)
     }
 
-    private fun RiskProfileDTOMock(age: Int, dependents: Int, income: Int, riskQuestions: IntArray) =
+    private fun riskProfileDTOMock(age: Int, dependents: Int, income: Int, riskQuestions: IntArray) =
             RiskProfileDTO(age = age,
                     dependents = dependents,
                     house = HouseDTO(OwnershipStatus.MORTGAGED),
                     income = income,
                     maritalStatus = MaritalStatus.SINGLE,
                     riskQuestions = riskQuestions,
-                    vehicle = YearDTO(2020))
+                    vehicle = YearDTO(2020)
+            )
 }

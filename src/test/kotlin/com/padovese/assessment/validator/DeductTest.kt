@@ -18,7 +18,7 @@ class DeductTest {
 
     @Test
     fun `DeductTest - UnderThirtyYearsOld`() {
-        val riskProfile = RiskProfileMock(25, 0)
+        val riskProfile = riskProfileMock(25, 0)
 
         deduct.validate(riskProfile)
 
@@ -30,7 +30,7 @@ class DeductTest {
 
     @Test
     fun `DeductTest - BetweenThirtyAndFourtyYearsOld`() {
-        val riskProfile = RiskProfileMock(35, 0)
+        val riskProfile = riskProfileMock(35, 0)
 
         deduct.validate(riskProfile)
 
@@ -42,7 +42,7 @@ class DeductTest {
 
     @Test
     fun `DeductTest - MoreThanTwoHundredThousandIncome`() {
-        val riskProfile = RiskProfileMock(50, 300000)
+        val riskProfile = riskProfileMock(50, 300000)
 
         deduct.validate(riskProfile)
 
@@ -52,7 +52,7 @@ class DeductTest {
         Assert.assertEquals(2, riskProfile.lifeScore)
     }
 
-    private fun RiskProfileMock(age: Int, income: Int) =
+    private fun riskProfileMock(age: Int, income: Int) =
             RiskProfile(
                     age = age,
                     dependents = 0,

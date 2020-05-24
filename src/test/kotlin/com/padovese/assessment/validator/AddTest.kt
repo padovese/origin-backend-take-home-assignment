@@ -22,7 +22,7 @@ class AddTest {
 
     @Test
     fun `AddTest - HouseConditions`() {
-        val riskProfile = RiskProfileMock(HouseDTO(OwnershipStatus.MORTGAGED), 0, MaritalStatus.SINGLE, null)
+        val riskProfile = riskProfileMock(HouseDTO(OwnershipStatus.MORTGAGED), 0, MaritalStatus.SINGLE, null)
 
         add.validate(riskProfile)
 
@@ -34,7 +34,7 @@ class AddTest {
 
     @Test
     fun `AddTest - DependentsConditions`() {
-        val riskProfile = RiskProfileMock(null, 2, MaritalStatus.SINGLE, null)
+        val riskProfile = riskProfileMock(null, 2, MaritalStatus.SINGLE, null)
 
         add.validate(riskProfile)
 
@@ -46,7 +46,7 @@ class AddTest {
 
     @Test
     fun `AddTest - MaritalConditions`() {
-        val riskProfile = RiskProfileMock(null, 0, MaritalStatus.MARRIED, null)
+        val riskProfile = riskProfileMock(null, 0, MaritalStatus.MARRIED, null)
 
         add.validate(riskProfile)
 
@@ -58,7 +58,7 @@ class AddTest {
 
     @Test
     fun `AddTest - VehicleConditions`() {
-        val riskProfile = RiskProfileMock(null, 0, MaritalStatus.SINGLE, YearDTO(LocalDate.now().year))
+        val riskProfile = riskProfileMock(null, 0, MaritalStatus.SINGLE, YearDTO(LocalDate.now().year))
 
         add.validate(riskProfile)
 
@@ -68,7 +68,7 @@ class AddTest {
         Assert.assertEquals(3, riskProfile.lifeScore)
     }
 
-    private fun RiskProfileMock(house: HouseDTO?, dependents: Int, maritalStatus: MaritalStatus, vehicle: YearDTO?) =
+    private fun riskProfileMock(house: HouseDTO?, dependents: Int, maritalStatus: MaritalStatus, vehicle: YearDTO?) =
             RiskProfile(
                     age = 0,
                     dependents = dependents,

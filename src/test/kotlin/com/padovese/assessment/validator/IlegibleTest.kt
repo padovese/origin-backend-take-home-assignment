@@ -1,9 +1,6 @@
 package com.padovese.assessment.validator
 
-import com.padovese.assessment.dto.HouseDTO
-import com.padovese.assessment.dto.YearDTO
 import com.padovese.assessment.enm.MaritalStatus
-import com.padovese.assessment.enm.OwnershipStatus
 import com.padovese.assessment.model.RiskProfile
 import com.padovese.assessment.runner.TestRunner
 import org.junit.Assert.assertEquals
@@ -21,7 +18,7 @@ class IlegibleTest {
 
     @Test
     fun `IneligibleTest - Validate`() {
-        val riskProfile = RiskProfileMock()
+        val riskProfile = riskProfileMock()
         ineligible.validate(riskProfile)
 
         assertEquals(Int.MIN_VALUE, riskProfile.autoScore)
@@ -30,7 +27,7 @@ class IlegibleTest {
         assertEquals(Int.MIN_VALUE, riskProfile.lifeScore)
     }
 
-    private fun RiskProfileMock() =
+    private fun riskProfileMock() =
             RiskProfile(
                     age = 70,
                     dependents = 0,

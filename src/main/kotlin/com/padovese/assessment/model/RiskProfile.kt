@@ -4,18 +4,17 @@ import com.padovese.assessment.dto.HouseDTO
 import com.padovese.assessment.dto.YearDTO
 import com.padovese.assessment.enm.MaritalStatus
 
-
 data class RiskProfile(
-        val age: Long,
-        val dependents: Long,
+        val age: Int,
+        val dependents: Int,
         val house: HouseDTO?,
-        val income: Long,
+        val income: Int,
         val maritalStatus: MaritalStatus,
         val vehicle: YearDTO?,
-        var vehicleBinary: Long,
-        val houseBinary: Long,
-        var autoScore: Long,
-        var disabilityScore: Long,
-        var homeScore: Long,
-        var lifeScore: Long
+        var vehicleBinary: Int,
+        val houseBinary: Int,
+        var autoScore: Int,
+        var disabilityScore: Int,
+        var homeScore: Int,
+        var lifeScore: Int
 )

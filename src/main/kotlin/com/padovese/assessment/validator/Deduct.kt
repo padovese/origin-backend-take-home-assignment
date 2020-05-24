@@ -13,28 +13,28 @@ class Deduct {
 
     private fun underThirtyYearsOld(riskProfile: RiskProfile){
         if(riskProfile.age < 30){
-            riskProfile.disabilityScore -= 2L
-            riskProfile.homeScore -= 2L
-            riskProfile.autoScore -= 2L
-            riskProfile.lifeScore -= 2L
+            riskProfile.disabilityScore -= 2
+            riskProfile.homeScore -= 2
+            riskProfile.autoScore -= 2
+            riskProfile.lifeScore -= 2
         }
     }
 
     private fun betweenThirtyAndFourtyYearsOld(riskProfile: RiskProfile){
         if(riskProfile.age in 30..40){
-            riskProfile.disabilityScore -= 1L
-            riskProfile.homeScore -= 1L
-            riskProfile.autoScore -= 1L
-            riskProfile.lifeScore -= 1L
+            riskProfile.disabilityScore -= 1
+            riskProfile.homeScore -= 1
+            riskProfile.autoScore -= 1
+            riskProfile.lifeScore -= 1
         }
     }
 
     private fun moreThanTwoHundredThousandIncome(riskProfile: RiskProfile){
         if(riskProfile.income > 200000){
-            riskProfile.disabilityScore -= 1L
-            riskProfile.homeScore -= 1L
-            riskProfile.autoScore -= 1L
-            riskProfile.lifeScore -= 1L
+            riskProfile.disabilityScore -= 1
+            riskProfile.homeScore -= 1
+            riskProfile.autoScore -= 1
+            riskProfile.lifeScore -= 1
         }
     }
 }

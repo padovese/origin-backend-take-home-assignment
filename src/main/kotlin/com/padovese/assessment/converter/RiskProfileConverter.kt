@@ -15,14 +15,14 @@ object RiskProfileConverter {
         )
     }
 
-    private fun mapper(score: Long): String{
-        if(score == Long.MIN_VALUE)
+    private fun mapper(score: Int): String{
+        if(score == Int.MIN_VALUE)
             return InsurancePlan.INELIGIBLE.description
-        if(score <= 0L)
+        if(score <= 0)
             return InsurancePlan.ECONOMIC.description
-        if(score == 1L || score == 2L)
+        if(score == 1 || score == 2)
             return InsurancePlan.REGULAR.description
-        if(score >= 3L)
+        if(score >= 3)
             return InsurancePlan.RESPONSIBLE.description
         return String()
     }

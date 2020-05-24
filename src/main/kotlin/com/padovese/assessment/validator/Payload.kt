@@ -2,7 +2,7 @@ package com.padovese.assessment.validator
 
 import com.padovese.assessment.dto.RiskProfileDTO
 import com.padovese.assessment.exception.NegativeArgException
-import com.padovese.assessment.exception.RiskQuestionsExceptiton
+import com.padovese.assessment.exception.RiskQuestionsException
 import org.springframework.stereotype.Component
 
 @Component
@@ -19,8 +19,8 @@ class Payload {
             throw NegativeArgException("income", riskProfileDTO.income)
 
         if (riskProfileDTO.riskQuestions.size != 3)
-            throw RiskQuestionsExceptiton()
+            throw RiskQuestionsException()
 
-        riskProfileDTO.riskQuestions.map { i -> if(i == 0 || i == 1) else throw RiskQuestionsExceptiton() }
+        riskProfileDTO.riskQuestions.map { i -> if(i == 0 || i == 1) else throw RiskQuestionsException() }
     }
 }

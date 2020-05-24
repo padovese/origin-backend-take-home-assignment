@@ -9,10 +9,10 @@ class Ineligible {
         if(riskProfile.income == 0L)
             riskProfile.disabilityScore = Long.MIN_VALUE
 
-        if(riskProfile.houseScore == 0L)
+        if(riskProfile.houseBinary == 0L)
             riskProfile.homeScore = Long.MIN_VALUE
 
-        if(riskProfile.vehicleScore == 0L)
+        if(riskProfile.vehicleBinary == 0L)
             riskProfile.autoScore = Long.MIN_VALUE
 
         if(riskProfile.age > 60){

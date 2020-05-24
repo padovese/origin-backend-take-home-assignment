@@ -1,15 +1,21 @@
 package com.padovese.assessment.model
 
+import com.padovese.assessment.dto.HouseDTO
+import com.padovese.assessment.dto.YearDTO
+import com.padovese.assessment.enm.MaritalStatus
+
 
 data class RiskProfile(
         val age: Long,
+        val dependents: Long,
+        val house: HouseDTO?,
         val income: Long,
-        val baseScore: Long,
-        val vehicleScore: Long,
-        val houseScore: Long,
-
-        var autoScore: Long = 0L,
-        var disabilityScore: Long = 0L,
-        var homeScore: Long = 0L,
-        var lifeScore: Long = 0L
+        val maritalStatus: MaritalStatus,
+        val vehicle: YearDTO?,
+        var vehicleBinary: Long,
+        val houseBinary: Long,
+        var autoScore: Long,
+        var disabilityScore: Long,
+        var homeScore: Long,
+        var lifeScore: Long
 )
